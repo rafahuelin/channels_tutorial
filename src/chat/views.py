@@ -1,8 +1,11 @@
-from django.conf.urls import include
-from django.urls import path
-from django.contrib import admin
+from django.shortcuts import render
 
-urlpatterns = [
-    path('chat/', include('chat.urls')),
-    path('admin/', admin.site.urls),
-]
+
+def index(request):
+    return render(request, 'chat/index.html', {})
+
+
+def room(request, room_name):
+    return render(request, 'chat/room.html', {
+        'room_name': room_name
+    })
